@@ -20,7 +20,7 @@ public class PosterManagerTest {
 
     @Test
     public void giveLast6PostersTest() {
-        PosterManager movies = new PosterManager();
+        PosterManager movies = new PosterManager(6);
         movies.addPoster("Hero 1");
         movies.addPoster("Hero 2");
         movies.addPoster("Hero 3");
@@ -35,7 +35,7 @@ public class PosterManagerTest {
         movies.addPoster("Hero 12");
 
         String[] expected = {"Hero 12", "Hero 11","Hero 10","Hero 9","Hero 8","Hero 7" };
-        String[] actual = movies.giveLastPosters(6);
+        String[] actual = movies.giveLastPosters();
 
         Assertions.assertArrayEquals(expected, actual);
     }
@@ -51,9 +51,32 @@ public class PosterManagerTest {
         movies.addPoster("Hero 6");
         movies.addPoster("Hero 7");
         movies.addPoster("Hero 8");
+        movies.addPoster("Hero 9");
+        movies.addPoster("Hero 10");
+        movies.addPoster("Hero 11");
+
+
+        String[] expected = {"Hero 11", "Hero 10","Hero 9", "Hero 8","Hero 7", "Hero 6", "Hero 5", "Hero 4", "Hero 3", "Hero 2" };
+        String[] actual = movies.giveLastPosters();
+
+        Assertions.assertArrayEquals(expected, actual);
+    }
+
+
+    @Test
+    public void giveLast8PostersDefaultTest() {
+        PosterManager movies = new PosterManager(11);
+        movies.addPoster("Hero 1");
+        movies.addPoster("Hero 2");
+        movies.addPoster("Hero 3");
+        movies.addPoster("Hero 4");
+        movies.addPoster("Hero 5");
+        movies.addPoster("Hero 6");
+        movies.addPoster("Hero 7");
+        movies.addPoster("Hero 8");
 
         String[] expected = {"Hero 8","Hero 7", "Hero 6", "Hero 5", "Hero 4", "Hero 3", "Hero 2", "Hero 1" };
-        String[] actual = movies.giveLastPosters(11);
+        String[] actual = movies.giveLastPosters();
 
         Assertions.assertArrayEquals(expected, actual);
     }

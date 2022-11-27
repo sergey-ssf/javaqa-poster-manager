@@ -30,7 +30,7 @@ public class PosterManager {
 
 
     // Далее эквивалент findLast с другим названием
-    public String[] giveLastPosters(int limit) {
+    public String[] giveLastPosters() {
         int resultLength;
         if (posters.length < limit) {
             resultLength = posters.length;
